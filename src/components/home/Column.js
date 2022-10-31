@@ -11,7 +11,7 @@ const Column = ({ setOpen }) => {
         backgroundColor: "#FFFFFF",
         borderRadius: "10px",
         width: "100%",
-        margin: "1em 0",
+        margin: ".5em 0",
       }}
     >
       <Box

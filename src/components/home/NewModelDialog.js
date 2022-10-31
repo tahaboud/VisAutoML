@@ -80,13 +80,13 @@ const NewModelDialog = ({ open, setOpen, name, type, setName, setType }) => {
           helperText={errors && errors.type}
         >
           <MenuItem value={"Regression"}>
-            <Tooltip title={"Definition of Regression"}>
+            <Tooltip title={"Definition of Regression"} placement="right">
               <ListItemText primary={"Regression"} />
             </Tooltip>
           </MenuItem>
 
           <MenuItem value={"classification"}>
-            <Tooltip title={"Definition of Classification"}>
+            <Tooltip title={"Definition of Classification"} placement="right">
               <ListItemText primary={"Classification"} />
             </Tooltip>
           </MenuItem>
