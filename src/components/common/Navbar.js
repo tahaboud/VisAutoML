@@ -42,20 +42,20 @@ const Navbar = () => {
   };
 
   return (
-    <Box sx={{ padding: "1em", width: "240px" }}>
+    <Box sx={{ padding: "1em", width: "120px" }}>
       <Box
         sx={{
           textAlign: "center",
           backgroundColor: "blue",
           color: "white",
           padding: ".2em .5em",
-          maxWidth: "100px",
-          margin: "0 auto ",
+          width: "100%",
+          margin: "0 ",
         }}
       >
         <Typography sx={{ fontWeight: "bold" }}>VisAutoML</Typography>
       </Box>
-      <Box sx={{ margin: "3em 0 0 0" }}>
+      <Box sx={{ margin: "3em 0 0 1em" }}>
         <Link
           underline="none"
           sx={{ margin: "1em 0", cursor: "pointer" }}

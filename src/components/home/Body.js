@@ -25,7 +25,7 @@ const Body = () => {
   };
 
   return (
-    <Box sx={{ flex: 1 }}>
+    <Box sx={{ flex: 1, margin: "2em 0 0 0" }}>
       <Box sx={{ display: "flex", margin: "1em", width: "100%" }}>
         <Box>
           <Typography
