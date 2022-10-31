@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { name, type } = useSelector((state) => state.model);
+  const { name, type, file } = useSelector((state) => state.model);
   const [active, setActive] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,6 +33,7 @@ const Navbar = () => {
   const onClick = (link) => {
     if (link === "/") {
       navigate(link);
+    } else if (link === "/review" && file === null) {
     } else {
       if (name !== "" && type !== "") {
         navigate(link);
@@ -107,12 +108,11 @@ const Navbar = () => {
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color:
-                name === "" || type === ""
-                  ? "#d1d1d1"
-                  : active === "review"
+              color: file
+                ? active === "review"
                   ? "blue"
-                  : "black",
+                  : "black"
+                : "#d1d1d1",
               margin: "1em 0",
             }}
           >
