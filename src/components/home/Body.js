@@ -1,13 +1,12 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Button, Card, Divider, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import AddchartOutlinedIcon from "@mui/icons-material/AddchartOutlined";
-import PlayCircleFilledOutlinedIcon from "@mui/icons-material/PlayCircleFilledOutlined";
-
-import Column from "./Column";
-import { useState } from "react";
 import NewModelDialog from "./NewModelDialog";
 import VideoDialog from "./VideoDialog";
 import DeleteDialog from "./DeleteDialog";
+import newDocument from "../../static/images/newDocument.png";
+import playButton from "../../static/images/play-button.png";
+import { useState } from "react";
+import TableComponent from "./Table";
 
 const Body = () => {
   const [newModelOpen, setNewModelOpen] = useState(false);
@@ -25,44 +24,60 @@ const Body = () => {
   };
 
   return (
-    <Box sx={{ flex: 1, margin: "2em 0 0 0" }}>
-      <Box sx={{ display: "flex", margin: "1em", width: "100%" }}>
+    <Box
+      sx={{
+        flex: 1,
+        margin: "2em 0 0 0",
+        backgroundColor: "#ffffff",
+        margin: "2em",
+        padding: "1em",
+        borderRadius: "20px",
+      }}
+    >
+      <Box sx={{ display: "flex", margin: "1em", width: "100%", gap: "2em" }}>
         <Box>
           <Typography
-            sx={{ color: "#5c5c5c", fontWeight: "bold", margin: "0 0 1em 0" }}
+            sx={{
+              color: "#000000",
+              fontWeight: "bold",
+              margin: "0 0 1em 0",
+              fontFamily: "Open Sans",
+            }}
           >
             Create New Prediction Model
           </Typography>
           <Box>
-            <Box
+            <Card
+              elevation="4"
               sx={{
                 width: "15em",
                 height: "10em",
-                backgroundColor: "#1a71ff",
-                color: "white",
+                backgroundColor: "#ffffff",
+                color: "#000000",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
                 "&:hover": {
-                  backgroundColor: "#1a63da",
-                  color: "#ffffff",
+                  backgroundColor: "#03c9d7",
+                  fill: "#ffffff",
                 },
               }}
               onClick={() => setNewModelOpen(true)}
             >
-              <AddchartOutlinedIcon sx={{ height: "5em", width: "3em" }} />
-            </Box>
+              <img src={newDocument} style={{ height: "7em" }} />
+            </Card>
             <Button
               startIcon={<AddIcon />}
               fullWidth
               sx={{
                 color: "#ffffff",
-                backgroundColor: "#1a71ff",
+                backgroundColor: "#03c9d7",
                 fontWeight: "bold",
+                fontFamily: "Open Sans",
                 borderRadius: "0",
                 "&:hover": {
-                  backgroundColor: "#1a63da",
+                  backgroundColor: "#03b3c0",
                   color: "#ffffff",
                 },
               }}
@@ -75,36 +90,35 @@ const Body = () => {
         <Divider orientation="vertical" flexItem sx={{ margin: "0 1em" }} />
         <Box>
           <Typography
-            sx={{ color: "#5c5c5c", fontWeight: "bold", margin: "0 0 1em 0" }}
+            sx={{
+              color: "#000000",
+              fontWeight: "bold",
+              margin: "0 0 1em 0",
+              fontFamily: "Open Sans",
+            }}
           >
             How it works
           </Typography>
           <Box sx={{ display: "flex" }}>
             <Box sx={{ margin: "0 1em 0 0" }}>
-              <Box
+              <Card
+                elevation="4"
                 sx={{
-                  width: "calc(15em - 8px)",
-                  height: "calc(10em - 8px)",
-                  backgroundColor: "#00000",
+                  width: "15em",
+                  height: "10em",
+                  backgroundColor: "#ffffff",
                   color: "white",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  border: "4px solid #000000",
                   cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#e6e6e6",
                   },
                 }}
               >
-                <PlayCircleFilledOutlinedIcon
-                  sx={{
-                    height: "5em",
-                    width: "3em",
-                    color: "#000000",
-                  }}
-                />
-              </Box>
+                <img src={playButton} style={{ height: "6em" }} />
+              </Card>
               <Button
                 fullWidth
                 onClick={() =>
@@ -112,11 +126,12 @@ const Body = () => {
                 }
                 sx={{
                   color: "#ffffff",
-                  backgroundColor: "#1a71ff",
+                  backgroundColor: "#03c9d7",
                   fontWeight: "bold",
+                  fontFamily: "Open Sans",
                   borderRadius: "0",
                   "&:hover": {
-                    backgroundColor: "#1a63da",
+                    backgroundColor: "#03b3c0",
                     color: "#ffffff",
                   },
                 }}
@@ -125,30 +140,24 @@ const Body = () => {
               </Button>
             </Box>
             <Box>
-              <Box
+              <Card
+                elevation="4"
                 sx={{
-                  width: "calc(15em - 8px)",
-                  height: "calc(10em - 8px)",
-                  backgroundColor: "#00000",
+                  width: "15em",
+                  height: "10em",
+                  backgroundColor: "#ffffff",
                   color: "white",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  border: "4px solid #000000",
                   cursor: "pointer",
                   "&:hover": {
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#e6e6e6",
                   },
                 }}
               >
-                <PlayCircleFilledOutlinedIcon
-                  sx={{
-                    height: "5em",
-                    width: "3em",
-                    color: "#000000",
-                  }}
-                />
-              </Box>
+                <img src={playButton} style={{ height: "6em" }} />
+              </Card>
               <Button
                 fullWidth
                 onClick={() =>
@@ -156,11 +165,12 @@ const Body = () => {
                 }
                 sx={{
                   color: "#ffffff",
-                  backgroundColor: "#1a71ff",
+                  backgroundColor: "#03c9d7",
                   fontWeight: "bold",
+                  fontFamily: "Open Sans",
                   borderRadius: "0",
                   "&:hover": {
-                    backgroundColor: "#1a63da",
+                    backgroundColor: "#03b3c0",
                     color: "#ffffff",
                   },
                 }}
@@ -171,20 +181,18 @@ const Body = () => {
           </Box>
         </Box>
       </Box>
-      <Box sx={{ margin: "1em" }}>
+      <Box sx={{ margin: "2em 0 0 1em" }}>
         <Typography
-          sx={{ color: "#5c5c5c", fontWeight: "bold", margin: "0 0 2em 0" }}
+          sx={{
+            color: "#000000",
+            fontWeight: "bold",
+            margin: "0 0 2em 0",
+            fontFamily: "Open Sans",
+          }}
         >
           Models
         </Typography>
-        <Box sx={{ maxHeight: "40vh", overflowY: "scroll" }}>
-          <Column setOpen={setDeleteDialogOpen} />
-          <Column setOpen={setDeleteDialogOpen} />
-          <Column setOpen={setDeleteDialogOpen} />
-          <Column setOpen={setDeleteDialogOpen} />
-          <Column setOpen={setDeleteDialogOpen} />
-          <Column setOpen={setDeleteDialogOpen} />
-        </Box>
+        <TableComponent setOpen={setDeleteDialogOpen} />
       </Box>
       <NewModelDialog
         open={newModelOpen}

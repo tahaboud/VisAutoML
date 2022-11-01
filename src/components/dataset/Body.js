@@ -46,12 +46,15 @@ const Body = () => {
         flexDirection: "column",
         justifyContent: "space-around",
         flex: "1",
-        margin: "2em 1em 1em 1em",
+        margin: "2em 1em 0 1em",
         height: "80vh",
-        padding: "1em",
+        padding: "2em",
+        borderRadius: "20px",
       }}
     >
-      <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
+      <Typography
+        sx={{ fontSize: "2rem", fontWeight: "bold", fontFamily: "Open Sans" }}
+      >
         Import
       </Typography>
 
