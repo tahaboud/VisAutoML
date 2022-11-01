@@ -4,7 +4,7 @@ import Body from "../components/dataset/Body";
 
 const Dataset = () => {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", minHeight: "100vh" }}>
       <Navbar />
       <Body />
     </Box>

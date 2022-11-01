@@ -43,8 +43,13 @@ const Body = () => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderRadius: "10px",
+                cursor: "pointer",
+                "&:hover": {
+                  backgroundColor: "#1a63da",
+                  color: "#ffffff",
+                },
               }}
+              onClick={() => setNewModelOpen(true)}
             >
               <AddchartOutlinedIcon sx={{ height: "5em", width: "3em" }} />
             </Box>
@@ -52,9 +57,14 @@ const Body = () => {
               startIcon={<AddIcon />}
               fullWidth
               sx={{
-                color: "#5c5c5c",
-                backgroundColor: "#ffffff",
+                color: "#ffffff",
+                backgroundColor: "#1a71ff",
                 fontWeight: "bold",
+                borderRadius: "0",
+                "&:hover": {
+                  backgroundColor: "#1a63da",
+                  color: "#ffffff",
+                },
               }}
               onClick={() => setNewModelOpen(true)}
             >
@@ -73,15 +83,18 @@ const Body = () => {
             <Box sx={{ margin: "0 1em 0 0" }}>
               <Box
                 sx={{
-                  width: "15em",
-                  height: "10em",
+                  width: "calc(15em - 8px)",
+                  height: "calc(10em - 8px)",
                   backgroundColor: "#00000",
                   color: "white",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  borderRadius: "10px",
                   border: "4px solid #000000",
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: "#ffffff",
+                  },
                 }}
               >
                 <PlayCircleFilledOutlinedIcon
@@ -98,9 +111,14 @@ const Body = () => {
                   onOpenTutorial("Tutorial 1", "https://youtu.be/oUFJJNQGwhk")
                 }
                 sx={{
-                  color: "#5c5c5c",
-                  backgroundColor: "#ffffff",
+                  color: "#ffffff",
+                  backgroundColor: "#1a71ff",
                   fontWeight: "bold",
+                  borderRadius: "0",
+                  "&:hover": {
+                    backgroundColor: "#1a63da",
+                    color: "#ffffff",
+                  },
                 }}
               >
                 Tutorial 1
@@ -109,15 +127,18 @@ const Body = () => {
             <Box>
               <Box
                 sx={{
-                  width: "15em",
-                  height: "10em",
+                  width: "calc(15em - 8px)",
+                  height: "calc(10em - 8px)",
                   backgroundColor: "#00000",
                   color: "white",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  borderRadius: "10px",
                   border: "4px solid #000000",
+                  cursor: "pointer",
+                  "&:hover": {
+                    backgroundColor: "#ffffff",
+                  },
                 }}
               >
                 <PlayCircleFilledOutlinedIcon
@@ -134,9 +155,14 @@ const Body = () => {
                   onOpenTutorial("Tutorial 2", "https://youtu.be/oUFJJNQGwhk")
                 }
                 sx={{
-                  color: "#5c5c5c",
-                  backgroundColor: "#ffffff",
+                  color: "#ffffff",
+                  backgroundColor: "#1a71ff",
                   fontWeight: "bold",
+                  borderRadius: "0",
+                  "&:hover": {
+                    backgroundColor: "#1a63da",
+                    color: "#ffffff",
+                  },
                 }}
               >
                 Tutorial 1

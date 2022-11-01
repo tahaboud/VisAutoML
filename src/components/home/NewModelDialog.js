@@ -45,9 +45,9 @@ const NewModelDialog = ({ open, setOpen, name, type, setName, setType }) => {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle sx={{ display: "flex" }}>
-        <Typography sx={{ flex: 1 }}>New Model</Typography>
+    <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
+      <DialogTitle sx={{ display: "flex", alignItems: "center" }}>
+        <Typography sx={{ flex: 1, color: "#000000" }}>New Model</Typography>
         <IconButton onClick={handleClose}>
           <CloseIcon />
         </IconButton>

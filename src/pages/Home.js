@@ -1,12 +1,18 @@
-import { Box, Divider } from "@mui/material";
+import { Box } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { reset } from "../actions/modelAction";
 import Navbar from "../components/common/Navbar";
 import Body from "../components/home/Body";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(reset());
+  }, []);
   return (
     <Box sx={{ display: "flex", minHeight: "100vh" }}>
       <Navbar />
-      <Divider orientation="vertical" flexItem sx={{ margin: "1em" }} />
       <Body />
     </Box>
   );

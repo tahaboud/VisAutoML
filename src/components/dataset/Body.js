@@ -1,4 +1,11 @@
-import { Box, Button, MenuItem, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  MenuItem,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { DropzoneArea } from "react-mui-dropzone";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -33,17 +40,29 @@ const Body = () => {
     navigate("/review");
   };
   return (
-    <Box
+    <Card
       sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        alignItems: "center",
         flex: "1",
-        margin: "1em",
+        margin: "2em 1em 1em 1em",
         height: "80vh",
+        padding: "1em",
       }}
     >
+      <Typography sx={{ fontSize: "2rem", fontWeight: "bold" }}>
+        Import
+      </Typography>
+
+      <Box sx={{ margin: "1em 0", width: "100%" }}>
+        <DropzoneArea
+          filesLimit={1}
+          onChange={onSelect}
+          onDelete={onDelete}
+          acceptedFiles={["text/csv"]}
+        />
+      </Box>
       <Box>
         <TextField
           select
@@ -58,15 +77,7 @@ const Body = () => {
           <MenuItem value={"File 3"}>File 3</MenuItem>
         </TextField>
       </Box>
-      <Box sx={{ margin: "1em 0", width: "100%" }}>
-        <DropzoneArea
-          filesLimit={1}
-          onChange={onSelect}
-          onDelete={onDelete}
-          acceptedFiles={["text/csv"]}
-        />
-      </Box>
-      <Box>
+      <Box sx={{ display: "flex", justifyContent: "end" }}>
         <Button
           variant="contained"
           disabled={!disabled && fileName === ""}
@@ -75,7 +86,7 @@ const Body = () => {
           Review data
         </Button>
       </Box>
-    </Box>
+    </Card>
   );
 };
 

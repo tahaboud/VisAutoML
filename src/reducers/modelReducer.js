@@ -6,6 +6,9 @@ const initialState = {
 
 const modelReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "RESET":
+      return { name: "", type: "", file: null };
+
     case "ADD_NEW_MODEL":
       return { ...state, name: action.payload.name, type: action.payload.type };
 

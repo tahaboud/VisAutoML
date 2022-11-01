@@ -11,14 +11,15 @@ const Column = ({ setOpen }) => {
         backgroundColor: "#FFFFFF",
         borderRadius: "10px",
         width: "100%",
-        margin: ".5em 0",
+        margin: "1em 0",
       }}
     >
       <Box
         sx={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "start",
           width: "100%",
+          gap: "3em",
         }}
       >
         <IconButton onClick={() => navigate("/model")}>
@@ -38,9 +39,9 @@ const Column = ({ setOpen }) => {
         </Box>
         <Box>
           <Typography sx={{ color: "#d7d7d7", fontWeight: "bold" }}>
-            Model Name
+            Algorithm Name
           </Typography>
-          <Typography sx={{ fontWeight: "bold" }}>Model 1</Typography>
+          <Typography sx={{ fontWeight: "bold" }}>Algorithm 1</Typography>
         </Box>
         <Box>
           <Typography sx={{ color: "#d7d7d7", fontWeight: "bold" }}>

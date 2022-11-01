@@ -1,7 +1,14 @@
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Card, Link, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import {
+  ModelTraining,
+  QueryStats,
+  Storage,
+  Webhook,
+} from "@mui/icons-material";
 
 const Navbar = () => {
   const { name, type, file } = useSelector((state) => state.model);
@@ -42,12 +49,11 @@ const Navbar = () => {
   };
 
   return (
-    <Box sx={{ padding: "1em", width: "120px" }}>
+    <Card sx={{ padding: "1em", width: "120px" }}>
       <Box
         sx={{
           textAlign: "center",
-          backgroundColor: "blue",
-          color: "white",
+          color: "#707580",
           padding: ".2em .5em",
           width: "100%",
           margin: "0 ",
@@ -58,15 +64,21 @@ const Navbar = () => {
       <Box sx={{ margin: "3em 0 0 1em" }}>
         <Link
           underline="none"
-          sx={{ margin: "1em 0", cursor: "pointer" }}
+          sx={{
+            margin: "1em 0",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "1em",
+            color: active === "home" ? "blue" : "black",
+          }}
           onClick={() => onClick("/")}
         >
+          <HomeIcon />
           <Typography
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color: active === "home" ? "blue" : "black",
-              margin: "1em 0",
             }}
           >
             Home
@@ -77,20 +89,23 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             cursor: name === "" || type === "" ? "default" : "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "1em",
+            color:
+              name === "" || type === ""
+                ? "#d1d1d1"
+                : active === "dataset"
+                ? "blue"
+                : "black",
           }}
           onClick={() => onClick("/dataset")}
         >
+          <Storage />
           <Typography
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color:
-                name === "" || type === ""
-                  ? "#d1d1d1"
-                  : active === "dataset"
-                  ? "blue"
-                  : "black",
-              margin: "1em 0",
             }}
           >
             Dataset
@@ -100,20 +115,19 @@ const Navbar = () => {
           underline="none"
           sx={{
             margin: "1em 0",
-            cursor: name === "" || type === "" ? "default" : "pointer",
+            cursor: file === null ? "default" : "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "1em",
+            color: file ? (active === "review" ? "blue" : "black") : "#d1d1d1",
           }}
           onClick={() => onClick("/review")}
         >
+          <QueryStats />
           <Typography
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color: file
-                ? active === "review"
-                  ? "blue"
-                  : "black"
-                : "#d1d1d1",
-              margin: "1em 0",
             }}
           >
             Review
@@ -124,20 +138,23 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             cursor: name === "" || type === "" ? "default" : "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "1em",
+            color:
+              name === "" || type === ""
+                ? "#d1d1d1"
+                : active === "select"
+                ? "blue"
+                : "black",
           }}
           onClick={() => onClick("/select")}
         >
+          <Webhook />
           <Typography
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color:
-                name === "" || type === ""
-                  ? "#d1d1d1"
-                  : active === "select"
-                  ? "blue"
-                  : "black",
-              margin: "1em 0",
             }}
           >
             Select
@@ -148,27 +165,30 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             cursor: name === "" || type === "" ? "default" : "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "1em",
+            color:
+              name === "" || type === ""
+                ? "#d1d1d1"
+                : active === "model"
+                ? "blue"
+                : "black",
           }}
           onClick={() => onClick("/model")}
         >
+          <ModelTraining />
           <Typography
             sx={{
               textAlign: "left",
               fontWeight: "bold",
-              color:
-                name === "" || type === ""
-                  ? "#d1d1d1"
-                  : active === "model"
-                  ? "blue"
-                  : "black",
-              margin: "1em 0",
             }}
           >
             Model
           </Typography>
         </Link>
       </Box>
-    </Box>
+    </Card>
   );
 };
 
