@@ -27,7 +27,6 @@ const Body = () => {
     <Box
       sx={{
         flex: 1,
-        margin: "2em 0 0 0",
         backgroundColor: "#ffffff",
         margin: "2em",
         padding: "1em",
@@ -39,52 +38,61 @@ const Body = () => {
           <Typography
             sx={{
               color: "#000000",
-              fontWeight: "bold",
+              fontWeight: "bolder",
               margin: "0 0 1em 0",
               fontFamily: "Open Sans",
+              fontSize: "1.5rem",
             }}
           >
-            Create New Prediction Model
+            Home
           </Typography>
           <Box>
             <Card
-              elevation="4"
+              elevation={4}
               sx={{
                 width: "15em",
-                height: "10em",
+                height: "13em",
                 backgroundColor: "#ffffff",
                 color: "#000000",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
                 cursor: "pointer",
-                "&:hover": {
-                  backgroundColor: "#03c9d7",
-                  fill: "#ffffff",
-                },
+                borderBottomLeftRadius: "0",
+                borderBottomRightRadius: "0",
               }}
               onClick={() => setNewModelOpen(true)}
             >
-              <img src={newDocument} style={{ height: "7em" }} />
-            </Card>
-            <Button
-              startIcon={<AddIcon />}
-              fullWidth
-              sx={{
-                color: "#ffffff",
-                backgroundColor: "#03c9d7",
-                fontWeight: "bold",
-                fontFamily: "Open Sans",
-                borderRadius: "0",
-                "&:hover": {
-                  backgroundColor: "#03b3c0",
+              <Box
+                sx={{
+                  flex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={newDocument} style={{ height: "7em" }} />
+              </Box>
+              <Button
+                startIcon={<AddIcon />}
+                fullWidth
+                sx={{
                   color: "#ffffff",
-                },
-              }}
-              onClick={() => setNewModelOpen(true)}
-            >
-              New Model
-            </Button>
+                  backgroundColor: "#1a97f5",
+                  fontWeight: "bold",
+                  fontFamily: "Open Sans",
+                  borderRadius: "0",
+                  "&:hover": {
+                    backgroundColor: "#1a97f5",
+                    color: "#ffffff",
+                  },
+                }}
+                onClick={() => setNewModelOpen(true)}
+              >
+                New Model
+              </Button>
+            </Card>
           </Box>
         </Box>
         <Divider orientation="vertical" flexItem sx={{ margin: "0 1em" }} />
@@ -92,7 +100,8 @@ const Body = () => {
           <Typography
             sx={{
               color: "#000000",
-              fontWeight: "bold",
+              fontWeight: "bolder",
+              fontSize: "1.5rem",
               margin: "0 0 1em 0",
               fontFamily: "Open Sans",
             }}
@@ -102,90 +111,91 @@ const Body = () => {
           <Box sx={{ display: "flex" }}>
             <Box sx={{ margin: "0 1em 0 0" }}>
               <Card
-                elevation="4"
+                elevation={4}
                 sx={{
                   width: "15em",
-                  height: "10em",
+                  height: "13em",
                   backgroundColor: "#ffffff",
                   color: "white",
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: "#e6e6e6",
-                  },
                 }}
               >
-                <img src={playButton} style={{ height: "6em" }} />
-              </Card>
-              <Button
-                fullWidth
-                onClick={() =>
-                  onOpenTutorial("Tutorial 1", "https://youtu.be/oUFJJNQGwhk")
-                }
-                sx={{
-                  color: "#ffffff",
-                  backgroundColor: "#03c9d7",
-                  fontWeight: "bold",
-                  fontFamily: "Open Sans",
-                  borderRadius: "0",
-                  "&:hover": {
-                    backgroundColor: "#03b3c0",
+                <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
+                  <img src={playButton} style={{ height: "6em" }} />
+                </Box>
+                <Button
+                  fullWidth
+                  onClick={() =>
+                    onOpenTutorial("Tutorial 1", "https://youtu.be/oUFJJNQGwhk")
+                  }
+                  sx={{
                     color: "#ffffff",
-                  },
-                }}
-              >
-                Tutorial 1
-              </Button>
+                    backgroundColor: "#1a97f5",
+                    fontWeight: "bold",
+                    fontFamily: "Open Sans",
+                    borderRadius: "0",
+                    "&:hover": {
+                      backgroundColor: "#1a97f5",
+                      color: "#ffffff",
+                    },
+                  }}
+                >
+                  Regression
+                </Button>
+              </Card>
             </Box>
             <Box>
               <Card
-                elevation="4"
+                elevation={4}
                 sx={{
                   width: "15em",
-                  height: "10em",
+                  height: "13em",
                   backgroundColor: "#ffffff",
                   color: "white",
                   display: "flex",
+                  flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  "&:hover": {
-                    backgroundColor: "#e6e6e6",
-                  },
                 }}
               >
-                <img src={playButton} style={{ height: "6em" }} />
-              </Card>
-              <Button
-                fullWidth
-                onClick={() =>
-                  onOpenTutorial("Tutorial 2", "https://youtu.be/oUFJJNQGwhk")
-                }
-                sx={{
-                  color: "#ffffff",
-                  backgroundColor: "#03c9d7",
-                  fontWeight: "bold",
-                  fontFamily: "Open Sans",
-                  borderRadius: "0",
-                  "&:hover": {
-                    backgroundColor: "#03b3c0",
+                <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
+                  <img src={playButton} style={{ height: "6em" }} />
+                </Box>
+                <Button
+                  fullWidth
+                  onClick={() =>
+                    onOpenTutorial("Tutorial 1", "https://youtu.be/oUFJJNQGwhk")
+                  }
+                  sx={{
                     color: "#ffffff",
-                  },
-                }}
-              >
-                Tutorial 1
-              </Button>
+                    backgroundColor: "#1a97f5",
+                    fontWeight: "bold",
+                    fontFamily: "Open Sans",
+                    borderRadius: "0",
+                    "&:hover": {
+                      backgroundColor: "#1a97f5",
+                      color: "#ffffff",
+                    },
+                  }}
+                >
+                  Classification
+                </Button>
+              </Card>
             </Box>
           </Box>
         </Box>
       </Box>
-      <Box sx={{ margin: "2em 0 0 1em" }}>
+      <Box sx={{ margin: "3em 0 0 1em" }}>
         <Typography
           sx={{
             color: "#000000",
-            fontWeight: "bold",
+            fontWeight: "bolder",
+            fontSize: "1.5rem",
             margin: "0 0 2em 0",
             fontFamily: "Open Sans",
           }}

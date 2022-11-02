@@ -54,11 +54,15 @@ const TableComponent = ({ setOpen }) => {
     },
   ];
   return (
-    <TableContainer component={Paper} sx={{ backgroundColor: "#ffffff" }}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer
+      component={Paper}
+      sx={{ backgroundColor: "#ffffff", width: "50em" }}
+    >
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell
+              size="small"
               align="left"
               sx={{
                 fontFamily: "Open Sans",
@@ -121,7 +125,7 @@ const TableComponent = ({ setOpen }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.slice(page * 3, page * 3 + 3).map((row, index) => (
+          {rows.slice(page * 5, page * 5 + 5).map((row, index) => (
             <TableRow
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -179,7 +183,7 @@ const TableComponent = ({ setOpen }) => {
           <TableRow>
             <TablePagination
               count={rows.length}
-              rowsPerPage={3}
+              rowsPerPage={5}
               page={page}
               rowsPerPageOptions={[]}
               onPageChange={handleChangePage}

@@ -44,6 +44,11 @@ const NewModelDialog = ({ open, setOpen, name, type, setName, setType }) => {
     }
   };
 
+  const regressionDefinition =
+    "Predict continuous variables such as house prices, and weather temperatures (Ex- What is the temperature going to be tomorrow?)";
+  const classificationDefinition =
+    "Predict the categorization of data into different classes (Ex- Will it be hot or cold or tomorrow?)";
+
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
       <DialogTitle sx={{ display: "flex", alignItems: "center" }}>
@@ -90,13 +95,13 @@ const NewModelDialog = ({ open, setOpen, name, type, setName, setType }) => {
           helperText={errors && errors.type}
         >
           <MenuItem value={"Regression"}>
-            <Tooltip title={"Definition of Regression"} placement="right">
+            <Tooltip title={regressionDefinition} placement="right">
               <ListItemText primary={"Regression"} />
             </Tooltip>
           </MenuItem>
 
           <MenuItem value={"classification"}>
-            <Tooltip title={"Definition of Classification"} placement="right">
+            <Tooltip title={classificationDefinition} placement="right">
               <ListItemText primary={"Classification"} />
             </Tooltip>
           </MenuItem>

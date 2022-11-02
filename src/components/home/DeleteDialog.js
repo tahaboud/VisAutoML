@@ -8,11 +8,20 @@ const DeleteDialog = ({ open, setOpen }) => {
     setOpen(false);
   };
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>{"Delete this model?"}</DialogTitle>
+    <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
+      <DialogTitle sx={{ fontFamily: "Open Sans" }}>
+        {"Delete this model?"}
+      </DialogTitle>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button variant="contained" onClick={handleClose} color="error">
+        <Button onClick={handleClose} sx={{ fontFamily: "Open Sans" }}>
+          Cancel
+        </Button>
+        <Button
+          variant="contained"
+          onClick={handleClose}
+          color="error"
+          sx={{ fontFamily: "Open Sans" }}
+        >
           Delete
         </Button>
       </DialogActions>

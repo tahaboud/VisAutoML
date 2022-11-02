@@ -9,13 +9,6 @@ import { BsEyeglasses } from "react-icons/bs";
 import { GoSettings } from "react-icons/go";
 import { MdOutlineVisibility } from "react-icons/md";
 
-import {
-  ModelTraining,
-  QueryStats,
-  Storage,
-  Webhook,
-} from "@mui/icons-material";
-
 const Navbar = () => {
   const { name, type, file } = useSelector((state) => state.model);
   const [active, setActive] = useState("home");
@@ -46,7 +39,9 @@ const Navbar = () => {
   const onClick = (link) => {
     if (link === "/") {
       navigate(link);
-    } else if (link === "/review" && file === null) {
+    } else if (link === "/dataset" && name !== "" && type !== "") {
+      navigate(link);
+    } else if (file === null) {
     } else {
       if (name !== "" && type !== "") {
         navigate(link);
@@ -55,7 +50,7 @@ const Navbar = () => {
   };
 
   return (
-    <Card sx={{ padding: "1em", width: "13em" }}>
+    <Card sx={{ padding: "1em", width: "13em", minWidth: "12em" }}>
       <Box
         sx={{
           textAlign: "center",
@@ -71,9 +66,9 @@ const Navbar = () => {
         <BiNetworkChart size="25px" />
         <Typography
           sx={{
-            fontWeight: "bold",
+            fontWeight: "bolder",
             fontFamily: "Open Sans",
-            fontSize: "1.5rem",
+            fontSize: "1.25rem",
           }}
         >
           VisAutoML
@@ -84,7 +79,7 @@ const Navbar = () => {
           sx={{
             fontFamily: "Open Sans",
             fontSize: "1rem",
-            fontWeight: "bold",
+            fontWeight: "500",
             color: "#c0c5cc",
           }}
         >
@@ -100,7 +95,7 @@ const Navbar = () => {
             alignItems: "center",
             gap: "1em",
             color: active === "home" ? "#ffffff" : "#000000",
-            backgroundColor: active === "home" ? "#03c9d7" : "#FFFFFF",
+            backgroundColor: active === "home" ? "#1a97f5" : "#FFFFFF",
             borderRadius: "5px",
           }}
           onClick={() => onClick("/")}
@@ -120,7 +115,7 @@ const Navbar = () => {
           sx={{
             fontFamily: "Open Sans",
             fontSize: "1rem",
-            fontWeight: "bold",
+            fontWeight: "500",
             color: "#c0c5cc",
           }}
         >
@@ -130,7 +125,7 @@ const Navbar = () => {
           underline="none"
           sx={{
             margin: "1em 0",
-            backgroundColor: active === "dataset" ? "#03c9d7" : "#FFFFFF",
+            backgroundColor: active === "dataset" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
@@ -162,7 +157,7 @@ const Navbar = () => {
           underline="none"
           sx={{
             margin: "1em 0",
-            backgroundColor: active === "review" ? "#03c9d7" : "#FFFFFF",
+            backgroundColor: active === "review" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
@@ -193,7 +188,7 @@ const Navbar = () => {
           sx={{
             fontFamily: "Open Sans",
             fontSize: "1rem",
-            fontWeight: "bold",
+            fontWeight: "500",
             color: "#c0c5cc",
           }}
         >
@@ -203,7 +198,7 @@ const Navbar = () => {
           underline="none"
           sx={{
             margin: "1em 0",
-            backgroundColor: active === "select" ? "#03c9d7" : "#FFFFFF",
+            backgroundColor: active === "select" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
@@ -212,7 +207,7 @@ const Navbar = () => {
             alignItems: "center",
             gap: "1em",
             color:
-              name === "" || type === ""
+              file === null
                 ? "#d1d1d1"
                 : active === "select"
                 ? "#ffffff"
@@ -235,7 +230,7 @@ const Navbar = () => {
           underline="none"
           sx={{
             margin: "1em 0",
-            backgroundColor: active === "model" ? "#03c9d7" : "#FFFFFF",
+            backgroundColor: active === "model" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
@@ -244,7 +239,7 @@ const Navbar = () => {
             alignItems: "center",
             gap: "1em",
             color:
-              name === "" || type === ""
+              file === null
                 ? "#d1d1d1"
                 : active === "model"
                 ? "#ffffff"

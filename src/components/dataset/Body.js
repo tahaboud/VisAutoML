@@ -2,6 +2,8 @@ import {
   Box,
   Button,
   Card,
+  Divider,
+  IconButton,
   MenuItem,
   TextField,
   Typography,
@@ -11,6 +13,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addDataSet } from "../../actions/modelAction";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Body = () => {
   const [file, setFile] = useState(null);
@@ -46,17 +49,37 @@ const Body = () => {
         flexDirection: "column",
         justifyContent: "space-around",
         flex: "1",
-        margin: "2em 1em 0 1em",
+        margin: "2em",
         height: "80vh",
         padding: "2em",
         borderRadius: "20px",
       }}
     >
-      <Typography
-        sx={{ fontSize: "2rem", fontWeight: "bold", fontFamily: "Open Sans" }}
-      >
-        Import
-      </Typography>
+      <Box sx={{ display: "flex" }}>
+        <IconButton onClick={() => navigate("/")}>
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+            fontWeight: "bolder",
+            fontFamily: "Open Sans",
+          }}
+        >
+          Import
+        </Typography>
+      </Box>
+      <Divider>
+        <Typography
+          sx={{
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            fontFamily: "Open Sans",
+          }}
+        >
+          Import a CSV File
+        </Typography>
+      </Divider>
 
       <Box sx={{ margin: "1em 0", width: "100%" }}>
         <DropzoneArea
@@ -66,10 +89,21 @@ const Body = () => {
           acceptedFiles={["text/csv"]}
         />
       </Box>
-      <Box>
+      <Divider>
+        <Typography
+          sx={{
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            fontFamily: "Open Sans",
+          }}
+        >
+          Or select from a list of sample datasets
+        </Typography>
+      </Divider>
+      <Box sx={{ marginTop: "1em" }}>
         <TextField
           select
-          label={"Choose an example dataset"}
+          label={"Select a sample dataset"}
           value={fileName}
           onChange={onChange}
           sx={{ minWidth: "25em", margin: "0 0 1em 0" }}
