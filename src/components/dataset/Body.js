@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { addDataSet } from "../../actions/modelAction";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const Body = () => {
+const Body = ({ backDialogOpen, setBackDialogOpen }) => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
   const [disabled, setDisabled] = useState(false);
@@ -56,7 +56,7 @@ const Body = () => {
       }}
     >
       <Box sx={{ display: "flex" }}>
-        <IconButton onClick={() => navigate("/")}>
+        <IconButton onClick={() => setBackDialogOpen(true)}>
           <ArrowBackIcon />
         </IconButton>
         <Typography
@@ -69,38 +69,38 @@ const Body = () => {
           Import
         </Typography>
       </Box>
-      <Divider>
-        <Typography
-          sx={{
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Import a CSV File
-        </Typography>
-      </Divider>
+      <Typography
+        sx={{
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          fontFamily: "Open Sans",
+        }}
+      >
+        Import a CSV File
+      </Typography>
 
-      <Box sx={{ margin: "1em 0", width: "100%" }}>
+      <Box sx={{ margin: "0 0 1em 0", width: "100%" }}>
         <DropzoneArea
           filesLimit={1}
           onChange={onSelect}
           onDelete={onDelete}
+          showPreviews={true}
+          showPreviewsInDropzone={false}
+          useChipsForPreview
+          previewText="Uploaded file"
           acceptedFiles={["text/csv"]}
         />
       </Box>
-      <Divider>
-        <Typography
-          sx={{
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Or select from a list of sample datasets
-        </Typography>
-      </Divider>
-      <Box sx={{ marginTop: "1em" }}>
+      <Typography
+        sx={{
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          fontFamily: "Open Sans",
+        }}
+      >
+        Or select from a list of sample datasets
+      </Typography>
+      <Box sx={{ marginTop: "0 1em" }}>
         <TextField
           select
           label={"Select a sample dataset"}
