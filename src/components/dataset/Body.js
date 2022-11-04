@@ -1,18 +1,19 @@
 import {
+  Backdrop,
   Box,
   Button,
   Card,
-  Divider,
+  CircularProgress,
   IconButton,
   MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
 import { DropzoneArea } from "react-mui-dropzone";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addDataSet } from "../../actions/modelAction";
+import { addDataSet, getReview } from "../../actions/modelAction";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Body = ({ backDialogOpen, setBackDialogOpen }) => {
@@ -21,6 +22,13 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
   const [disabled, setDisabled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isLoading, model } = useSelector((state) => state.model);
+
+  useEffect(() => {
+    if (model) {
+      navigate("/review");
+    }
+  }, [model]);
 
   const onChange = (e) => {
     setFile(e.target.value);
@@ -40,9 +48,16 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
   };
   const onClick = () => {
     dispatch(addDataSet(file));
-    navigate("/review");
+    dispatch(getReview(file));
   };
-  return (
+  return isLoading ? (
+    <Backdrop
+      sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={isLoading}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop>
+  ) : (
     <Card
       sx={{
         display: "flex",

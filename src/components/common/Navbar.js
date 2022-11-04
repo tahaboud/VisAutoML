@@ -10,7 +10,7 @@ import { GoSettings } from "react-icons/go";
 import { MdOutlineVisibility } from "react-icons/md";
 
 const Navbar = () => {
-  const { name, type, file } = useSelector((state) => state.model);
+  const { name, type, model } = useSelector((state) => state.model);
   const [active, setActive] = useState("home");
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,7 +41,7 @@ const Navbar = () => {
       navigate(link);
     } else if (link === "/dataset" && name !== "" && type !== "") {
       navigate(link);
-    } else if (file === null) {
+    } else if (model === null) {
     } else {
       if (name !== "" && type !== "") {
         navigate(link);
@@ -90,11 +90,15 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             padding: ".5em 1em",
-            cursor: "pointer",
+            cursor: model ? "default" : "pointer",
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color: active === "home" ? "#ffffff" : "#000000",
+            color: model
+              ? "#d1d1d1"
+              : active === "home"
+              ? "#ffffff"
+              : "#000000",
             backgroundColor: active === "home" ? "#1a97f5" : "#FFFFFF",
             borderRadius: "5px",
           }}
@@ -124,17 +128,16 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
-            margin: "1em 0",
             backgroundColor: active === "dataset" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: name === "" || type === "" ? "default" : "pointer",
+            cursor: name === "" || type === "" || model ? "default" : "pointer",
             display: "flex",
             alignItems: "center",
             gap: "1em",
             color:
-              name === "" || type === ""
+              name === "" || type === "" || model
                 ? "#d1d1d1"
                 : active === "dataset"
                 ? "#ffffff"
@@ -156,16 +159,15 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
-            margin: "1em 0",
             backgroundColor: active === "review" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: file === null ? "default" : "pointer",
+            cursor: model === null ? "default" : "pointer",
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color: file
+            color: model
               ? active === "review"
                 ? "#ffffff"
                 : "#000000"
@@ -197,19 +199,18 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
-            margin: "1em 0",
             backgroundColor: active === "select" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: name === "" || type === "" ? "default" : "pointer",
+            cursor: "default",
             display: "flex",
             alignItems: "center",
             gap: "1em",
             color:
-              file === null
+              name === "" || type === "" || model
                 ? "#d1d1d1"
-                : active === "select"
+                : active === "dataset"
                 ? "#ffffff"
                 : "#000000",
           }}
@@ -229,19 +230,18 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
-            margin: "1em 0",
             backgroundColor: active === "model" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: name === "" || type === "" ? "default" : "pointer",
+            cursor: "default",
             display: "flex",
             alignItems: "center",
             gap: "1em",
             color:
-              file === null
+              name === "" || type === "" || model
                 ? "#d1d1d1"
-                : active === "model"
+                : active === "dataset"
                 ? "#ffffff"
                 : "#000000",
           }}
