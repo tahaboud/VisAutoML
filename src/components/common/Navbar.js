@@ -210,7 +210,7 @@ const Navbar = () => {
             color:
               name === "" || type === "" || model
                 ? "#d1d1d1"
-                : active === "dataset"
+                : active === "select"
                 ? "#ffffff"
                 : "#000000",
           }}
@@ -241,7 +241,7 @@ const Navbar = () => {
             color:
               name === "" || type === "" || model
                 ? "#d1d1d1"
-                : active === "dataset"
+                : active === "model"
                 ? "#ffffff"
                 : "#000000",
           }}

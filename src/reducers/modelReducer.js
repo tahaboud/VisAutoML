@@ -30,7 +30,7 @@ const modelReducer = (state = initialState, action) => {
         response: action.payload.response,
         model: action.payload.model,
         description: action.payload.description,
-        histogram: action.payload.histogram,
+        histogram: action.payload.response.histogram,
         errors: null,
       };
     case "GET_REVIEW_FAIL":
