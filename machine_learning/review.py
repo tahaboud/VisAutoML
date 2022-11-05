@@ -21,6 +21,6 @@ def get_review(file):
             empty[column]) <= 5)
         if types[column] == "int64":
             histogram[column] = file[column].value_counts().to_dict()
-    fileFitForUse = fit_for_use.count(True) > 3
+    fileFitForUse = fit_for_use.count(True) > 3 and (rows >= (len(columns)*30))
     nullRows = file.isna().any(axis=1).sum()
     return {"result": result, "fileFitForUse": fileFitForUse, "rows": rows, "columnsLength": len(columns), "columns": columns, "unfitColumns": fit_for_use.count(False), "unfitRows": nullRows, "histogram": histogram}
