@@ -1,7 +1,6 @@
 import { Box, Card, Link, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { BiNetworkChart } from "react-icons/bi";
 import { RiHomeLine } from "react-icons/ri";
 import { FaDatabase } from "react-icons/fa";
@@ -10,9 +9,7 @@ import { GoSettings } from "react-icons/go";
 import { MdOutlineVisibility } from "react-icons/md";
 
 const Navbar = () => {
-  const { name, type, model } = useSelector((state) => state.model);
   const [active, setActive] = useState("home");
-  const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
     switch (location.pathname) {
@@ -115,7 +112,6 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             backgroundColor: active === "dataset" ? "#1a97f5" : "#FFFFFF",
-            margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
             cursor: "default",
@@ -142,7 +138,6 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             backgroundColor: active === "review" ? "#1a97f5" : "#FFFFFF",
-            margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
             cursor: "default",
@@ -179,7 +174,6 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             backgroundColor: active === "select" ? "#1a97f5" : "#FFFFFF",
-            margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
             cursor: "default",
@@ -206,7 +200,6 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             backgroundColor: active === "model" ? "#1a97f5" : "#FFFFFF",
-            margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
             cursor: "default",
