@@ -18,6 +18,7 @@ import { saveDescription } from "../../actions/modelAction";
 import { useState } from "react";
 import Chart from "./Chart";
 import { useNavigate } from "react-router-dom";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Body = ({ backDialogOpen, setBackDialogOpen }) => {
   const { isLoading, response, histogram } = useSelector(
@@ -49,7 +50,7 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
       sx={{
         display: "flex",
         flexDirection: "column",
-        gap: "1em",
+        gap: "2.5em",
         flex: "1",
         margin: "2em",
         padding: "2em",
@@ -59,10 +60,10 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
       <Box
         sx={{
           display: "flex",
-          gap: "1em",
+          gap: "2.5em",
         }}
       >
-        <Box sx={{ width: "13em" }}>
+        <Box sx={{ width: "15em" }}>
           <Box sx={{ display: "flex" }}>
             <IconButton onClick={handleBack}>
               <ArrowBackIcon />
@@ -88,9 +89,19 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
           )}
           {response && response.rows ? (
             <Alert
-              icon={<CheckIcon fontSize="inherit" />}
+              icon={
+                response.rows < response.columnsLength * 30 ? (
+                  <CloseIcon fontSize="inherit" />
+                ) : (
+                  <CheckIcon fontSize="inherit" />
+                )
+              }
               sx={{ margin: "1em 0" }}
-              severity="success"
+              severity={
+                response.rows < response.columnsLength * 30
+                  ? "error"
+                  : "success"
+              }
             >
               Total Rows: {response.rows}
             </Alert>
@@ -131,7 +142,7 @@ const Body = ({ backDialogOpen, setBackDialogOpen }) => {
             ""
           )}
         </Box>
-        <Box>
+        <Box sx={{ flex: 1 }}>
           <Typography
             sx={{
               fontSize: "1.5rem",

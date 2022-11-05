@@ -32,10 +32,7 @@ const TableComponent = ({ descrip, setDescrip }) => {
   };
 
   return (
-    <TableContainer
-      component={Paper}
-      sx={{ backgroundColor: "#ffffff", width: "50em" }}
-    >
+    <TableContainer component={Paper} sx={{ backgroundColor: "#ffffff" }}>
       <Table>
         <TableHead>
           <TableRow>
@@ -85,6 +82,7 @@ const TableComponent = ({ descrip, setDescrip }) => {
                 fontFamily: "Open Sans",
                 fontSize: "1rem",
                 fontWeight: "bold",
+                width: "50%",
               }}
             >
               Column Description
@@ -143,6 +141,7 @@ const TableComponent = ({ descrip, setDescrip }) => {
                 >
                   <TextField
                     multiline
+                    fullWidth
                     maxRows={2}
                     placeholder={"Max: 50 characters"}
                     size="small"
