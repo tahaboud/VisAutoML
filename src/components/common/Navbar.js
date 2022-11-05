@@ -36,18 +36,7 @@ const Navbar = () => {
         break;
     }
   }, []);
-  const onClick = (link) => {
-    if (link === "/") {
-      navigate(link);
-    } else if (link === "/dataset" && name !== "" && type !== "") {
-      navigate(link);
-    } else if (model === null) {
-    } else {
-      if (name !== "" && type !== "") {
-        navigate(link);
-      }
-    }
-  };
+  const onClick = (link) => {};
 
   return (
     <Card sx={{ padding: "1em", width: "13em", minWidth: "12em" }}>
@@ -90,15 +79,11 @@ const Navbar = () => {
           sx={{
             margin: "1em 0",
             padding: ".5em 1em",
-            cursor: model ? "default" : "pointer",
+            cursor: "default",
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color: model
-              ? "#d1d1d1"
-              : active === "home"
-              ? "#ffffff"
-              : "#000000",
+            color: active === "home" ? "#ffffff" : "#d1d1d1",
             backgroundColor: active === "home" ? "#1a97f5" : "#FFFFFF",
             borderRadius: "5px",
           }}
@@ -128,20 +113,16 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
+            margin: "1em 0",
             backgroundColor: active === "dataset" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: name === "" || type === "" || model ? "default" : "pointer",
+            cursor: "default",
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color:
-              name === "" || type === "" || model
-                ? "#d1d1d1"
-                : active === "dataset"
-                ? "#ffffff"
-                : "#000000",
+            color: active === "dataset" ? "#ffffff" : "#d1d1d1",
           }}
           onClick={() => onClick("/dataset")}
         >
@@ -159,19 +140,16 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
+            margin: "1em 0",
             backgroundColor: active === "review" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
             borderRadius: "5px",
-            cursor: model === null ? "default" : "pointer",
+            cursor: "default",
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color: model
-              ? active === "review"
-                ? "#ffffff"
-                : "#000000"
-              : "#d1d1d1",
+            color: active === "review" ? "#ffffff" : "#d1d1d1",
           }}
           onClick={() => onClick("/review")}
         >
@@ -199,6 +177,7 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
+            margin: "1em 0",
             backgroundColor: active === "select" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
@@ -207,12 +186,7 @@ const Navbar = () => {
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color:
-              name === "" || type === "" || model
-                ? "#d1d1d1"
-                : active === "select"
-                ? "#ffffff"
-                : "#000000",
+            color: active === "select" ? "#ffffff" : "#d1d1d1",
           }}
           onClick={() => onClick("/select")}
         >
@@ -230,6 +204,7 @@ const Navbar = () => {
         <Link
           underline="none"
           sx={{
+            margin: "1em 0",
             backgroundColor: active === "model" ? "#1a97f5" : "#FFFFFF",
             margin: "1em 0",
             padding: ".5em 1em",
@@ -238,12 +213,7 @@ const Navbar = () => {
             display: "flex",
             alignItems: "center",
             gap: "1em",
-            color:
-              name === "" || type === "" || model
-                ? "#d1d1d1"
-                : active === "model"
-                ? "#ffffff"
-                : "#000000",
+            color: active === "model" ? "#ffffff" : "#d1d1d1",
           }}
           onClick={() => onClick("/model")}
         >
