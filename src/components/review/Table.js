@@ -26,7 +26,7 @@ const TableComponent = ({ descrip, setDescrip }) => {
   }, [description]);
 
   const onChange = (e, name) => {
-    let new_descr = descrip;
+    let new_descr = { ...descrip };
     new_descr[name] = e.target.value;
     setDescrip(new_descr);
   };
