@@ -1,12 +1,14 @@
 import {
   Card,
   Divider,
+  IconButton,
   MenuItem,
   Switch,
   TextField,
   Tooltip,
   Typography,
 } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -61,7 +63,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Body = () => {
+const Body = ({ open, setOpen }) => {
   const classes = useStyles();
   const { response, model } = useSelector((state) => state.model);
   const [columns, setColumns] = useState([]);
@@ -95,17 +97,23 @@ const Body = () => {
         gap: "2.5em",
       }}
     >
-      <Box>
+      <Box sx={{ flex: 1.5 }}>
         <Box sx={{ height: "10em" }}>
-          <Typography
-            sx={{
-              fontSize: "1.5rem",
-              fontWeight: "bolder",
-              fontFamily: "Open Sans",
-            }}
-          >
-            ML Algorithm
-          </Typography>
+          <Box sx={{ display: "flex", gap: "1em" }}>
+            <IconButton onClick={() => setOpen(true)}>
+              <ArrowBackIcon />
+            </IconButton>
+            <Typography
+              sx={{
+                fontSize: "1.5rem",
+                fontWeight: "bolder",
+                fontFamily: "Open Sans",
+              }}
+            >
+              ML Algorithm
+            </Typography>
+          </Box>
+
           <Box
             sx={{
               display: "flex",
@@ -149,8 +157,8 @@ const Body = () => {
         <Divider sx={{ margin: "1em 0" }} />
       </Box>
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 1 }}>
-        <Box sx={{ height: "9em" }}>
+      <Box sx={{ flex: 2 }}>
+        <Box sx={{ height: "5em" }}>
           <Typography
             sx={{
               fontSize: "1.5rem",
@@ -176,7 +184,7 @@ const Body = () => {
           setElements={setElements}
         />
       </Box>
-      <Box>
+      <Box sx={{ flex: 1 }}>
         <Typography
           sx={{
             fontSize: "1.5rem",
@@ -199,7 +207,7 @@ const Body = () => {
         <Box
           sx={{
             display: "flex",
-            margin: "1em 0",
+            margin: "0",
             gap: "5px",
             alignItems: "center",
           }}
