@@ -1,6 +1,6 @@
 import { Droppable } from "react-beautiful-dnd";
 import ListItem from "./ListItem";
-import { Box, Icon, Tooltip } from "@mui/material";
+import { Box, Icon, Tooltip, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 
 const DraggableElement = ({ prefix, elements, id, tooltip }) => {
@@ -9,7 +9,7 @@ const DraggableElement = ({ prefix, elements, id, tooltip }) => {
       sx={{
         padding: "10px",
         borderRadius: "6px",
-        backgroundColor: "#c0c5cc",
+        backgroundColor: "#f7f8fa",
         border:
           id === "Prediction Column" && elements.length === 0
             ? "1px solid red"
@@ -18,16 +18,20 @@ const DraggableElement = ({ prefix, elements, id, tooltip }) => {
     >
       <Box
         sx={{
-          fontSize: "1.5rem",
-          fontWeight: 500,
-          fontFamily: "Open Sans",
           marginBottom: "20px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        {prefix}
+        <Typography
+          sx={{ fontSize: "1.1rem", fontWeight: 550, fontFamily: "Open Sans" }}
+        >
+          {prefix}
+        </Typography>
         <Tooltip placement="right" title={tooltip}>
           <Icon>
-            <InfoIcon />
+            <InfoIcon fontSize="small" sx={{ color: "grey" }} />
           </Icon>
         </Tooltip>
       </Box>

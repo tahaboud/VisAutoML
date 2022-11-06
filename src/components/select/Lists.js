@@ -61,8 +61,15 @@ const Lists = ({ columns, elements, setElements }) => {
   return (
     <Box sx={{ margin: "1em 0 0 0" }}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Box sx={{ display: "flex", gap: "1em" }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: "3em" }}>
+        <Box sx={{ display: "flex", gap: "3em" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "3em",
+              width: "50%",
+            }}
+          >
             <DraggableElement
               elements={elements["Prediction Column"]}
               key={"Prediction Column"}
@@ -85,7 +92,7 @@ const Lists = ({ columns, elements, setElements }) => {
               tooltip="Optional"
             />
           </Box>
-          <Box>
+          <Box sx={{ width: "50%" }}>
             <DraggableElement
               elements={elements["Columns to use"]}
               key={"Columns to use"}

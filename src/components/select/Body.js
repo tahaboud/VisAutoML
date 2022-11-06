@@ -4,6 +4,7 @@ import {
   MenuItem,
   Switch,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -11,8 +12,57 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Lists from "./Lists";
 import InfoIcon from "@mui/icons-material/Info";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    width: "125px",
+    height: "62px",
+    padding: "0px",
+  },
+  switchBase: {
+    color: "#818181",
+    padding: "1px",
+    "&$checked": {
+      "& + $track": {
+        backgroundColor: "#23bf58",
+      },
+    },
+  },
+  thumb: {
+    color: "white",
+    width: "56px",
+    height: "56px",
+    margin: "2px",
+  },
+  track: {
+    borderRadius: "30px",
+    backgroundColor: "#818181",
+    opacity: "1 !important",
+    "&:after, &:before": {
+      color: "white",
+      fontSize: "14px",
+      fontWeight: "bold",
+      position: "absolute",
+      top: "19px",
+    },
+    "&:after": {
+      content: "'Auto'",
+      left: "19px",
+    },
+    "&:before": {
+      content: "'Manual'",
+      right: "6px",
+    },
+  },
+  checked: {
+    color: "#23bf58 !important",
+    transform: "translateX(62px) !important",
+  },
+});
 
 const Body = () => {
+  const classes = useStyles();
   const { response, model } = useSelector((state) => state.model);
   const [columns, setColumns] = useState([]);
   const [isAuto, setIsAuto] = useState(true);
@@ -46,6 +96,87 @@ const Body = () => {
       }}
     >
       <Box>
+        <Box sx={{ height: "10em" }}>
+          <Typography
+            sx={{
+              fontSize: "1.5rem",
+              fontWeight: "bolder",
+              fontFamily: "Open Sans",
+            }}
+          >
+            ML Algorithm
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "1em 0 0 0 ",
+            }}
+          >
+            <Switch
+              classes={{
+                root: classes.root,
+                switchBase: classes.switchBase,
+                thumb: classes.thumb,
+                track: classes.track,
+                checked: classes.checked,
+              }}
+              checked={isAuto}
+              onChange={handleChecked}
+            />
+          </Box>
+          <Divider sx={{ margin: "1em 0" }} />
+        </Box>
+        <TextField
+          select
+          fullWidth
+          label="Select an algorithm"
+          value={algoValue}
+          onChange={handleAlgoChange}
+          disabled={isAuto}
+        >
+          <Tooltip title="some text" placement="right">
+            <MenuItem value="algo1">Algo 1</MenuItem>
+          </Tooltip>
+          <Tooltip title="some text" placement="right">
+            <MenuItem value="algo1">Algo 2</MenuItem>
+          </Tooltip>
+          <Tooltip title="some text" placement="right">
+            <MenuItem value="algo1">Algo 3</MenuItem>
+          </Tooltip>
+        </TextField>
+        <Divider sx={{ margin: "1em 0" }} />
+      </Box>
+      <Divider orientation="vertical" flexItem />
+      <Box sx={{ flex: 1 }}>
+        <Box sx={{ height: "9em" }}>
+          <Typography
+            sx={{
+              fontSize: "1.5rem",
+              fontWeight: "bolder",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Inputs
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Drag and drop the columns to the respective boards
+          </Typography>
+        </Box>
+        <Lists
+          columns={columns}
+          elements={elements}
+          setElements={setElements}
+        />
+      </Box>
+      <Box>
         <Typography
           sx={{
             fontSize: "1.5rem",
@@ -53,49 +184,18 @@ const Body = () => {
             fontFamily: "Open Sans",
           }}
         >
-          ML Learning Algorithm
+          Classification
         </Typography>
-        <Box
+        <Typography
           sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            margin: "1em 0 0 0 ",
+            fontSize: "1rem",
+            fontWeight: "bold",
+            fontFamily: "Open Sans",
           }}
         >
-          <Typography
-            sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              fontFamily: "Open Sans",
-            }}
-          >
-            Manual
-          </Typography>
-          <Switch checked={isAuto} onChange={handleChecked} />
-          <Typography
-            sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              fontFamily: "Open Sans",
-            }}
-          >
-            Automatic
-          </Typography>
-        </Box>
-        <Divider sx={{ margin: "1em 0" }} />
-        <TextField
-          select
-          fullWidth
-          value={algoValue}
-          onChange={handleAlgoChange}
-          disabled={isAuto}
-        >
-          <MenuItem value="algo1">Algo 1</MenuItem>
-          <MenuItem value="algo2">Algo 2</MenuItem>
-          <MenuItem value="algo3">Algo 3</MenuItem>
-        </TextField>
-        <Divider sx={{ margin: "1em 0" }} />
+          Add the corresponding label for values 0 and 1 of the prediction
+          column
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -110,7 +210,7 @@ const Body = () => {
             label="Label 0 for Prediction Column"
             disabled={model && model.model_type === "RG"}
           />
-          <InfoIcon />
+          <InfoIcon sx={{ color: "grey" }} />
         </Box>
         <Box
           sx={{
@@ -126,8 +226,26 @@ const Body = () => {
             label="Label 1 for Prediction Column"
             disabled={model && model.model_type === "RG"}
           />
-          <InfoIcon />
+          <InfoIcon sx={{ color: "grey" }} />
         </Box>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+            fontWeight: "bolder",
+            fontFamily: "Open Sans",
+          }}
+        >
+          Regression
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "1rem",
+            fontWeight: "bold",
+            fontFamily: "Open Sans",
+          }}
+        >
+          Add the corresponding unit of the prediction column
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -142,24 +260,8 @@ const Body = () => {
             label="Unit for Prediction Column"
             disabled={model && model.model_type === "CL"}
           />
-          <InfoIcon />
+          <InfoIcon sx={{ color: "grey" }} />
         </Box>
-      </Box>
-      <Box>
-        <Typography
-          sx={{
-            fontSize: "1.5rem",
-            fontWeight: "bolder",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Inputs
-        </Typography>
-        <Lists
-          columns={columns}
-          elements={elements}
-          setElements={setElements}
-        />
       </Box>
     </Card>
   );

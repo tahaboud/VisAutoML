@@ -130,7 +130,7 @@ const Navbar = () => {
               fontFamily: "Open Sans",
             }}
           >
-            Dataset
+            Import
           </Typography>
         </Link>
         <Link
@@ -192,7 +192,7 @@ const Navbar = () => {
               fontFamily: "Open Sans",
             }}
           >
-            Select
+            Develop
           </Typography>
         </Link>
         <Link
@@ -218,7 +218,7 @@ const Navbar = () => {
               fontFamily: "Open Sans",
             }}
           >
-            Model
+            Explain
           </Typography>
         </Link>
       </Box>
