@@ -221,28 +221,30 @@ const Body = ({ open, setOpen }) => {
           />
           <InfoIcon sx={{ color: "grey" }} />
         </Box>
-        <Typography
-          sx={{
-            fontSize: "1.5rem",
-            fontWeight: "bolder",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Classification
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "1rem",
-            fontWeight: "bold",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Add the label for values 0 and 1 of the prediction column
-        </Typography>
+        <Box sx={{ height: "7em" }}>
+          <Typography
+            sx={{
+              fontSize: "1.5rem",
+              fontWeight: "bolder",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Classification
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Add the label for values 0 and 1 of the prediction column
+          </Typography>
+        </Box>
         <Box
           sx={{
             display: "flex",
-            margin: "0",
+            margin: "1em 0",
             gap: "5px",
             alignItems: "center",
           }}
