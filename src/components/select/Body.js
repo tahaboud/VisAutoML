@@ -97,7 +97,7 @@ const Body = ({ open, setOpen }) => {
         gap: "2.5em",
       }}
     >
-      <Box sx={{ flex: 1.5 }}>
+      <Box sx={{ flex: 0.6 }}>
         <Box sx={{ height: "10em" }}>
           <Box sx={{ display: "flex", gap: "1em" }}>
             <IconButton onClick={() => setOpen(true)}>
@@ -157,7 +157,7 @@ const Body = ({ open, setOpen }) => {
         <Divider sx={{ margin: "1em 0" }} />
       </Box>
       <Divider orientation="vertical" flexItem />
-      <Box sx={{ flex: 2 }}>
+      <Box sx={{ flex: 1.3 }}>
         <Box sx={{ height: "5em" }}>
           <Typography
             sx={{
@@ -185,6 +185,42 @@ const Body = ({ open, setOpen }) => {
         />
       </Box>
       <Box sx={{ flex: 1 }}>
+        <Box sx={{ height: "5em" }}>
+          <Typography
+            sx={{
+              fontSize: "1.5rem",
+              fontWeight: "bolder",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Regression
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              fontFamily: "Open Sans",
+            }}
+          >
+            Add the unit of the prediction column
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            margin: "1em 0",
+            gap: "5px",
+            alignItems: "center",
+          }}
+        >
+          <TextField
+            fullWidth
+            variant="outlined"
+            label="Unit for Prediction Column"
+            disabled={model && model.model_type === "CL"}
+          />
+          <InfoIcon sx={{ color: "grey" }} />
+        </Box>
         <Typography
           sx={{
             fontSize: "1.5rem",
@@ -201,8 +237,7 @@ const Body = ({ open, setOpen }) => {
             fontFamily: "Open Sans",
           }}
         >
-          Add the corresponding label for values 0 and 1 of the prediction
-          column
+          Add the label for values 0 and 1 of the prediction column
         </Typography>
         <Box
           sx={{
@@ -233,40 +268,6 @@ const Body = ({ open, setOpen }) => {
             variant="outlined"
             label="Label 1 for Prediction Column"
             disabled={model && model.model_type === "RG"}
-          />
-          <InfoIcon sx={{ color: "grey" }} />
-        </Box>
-        <Typography
-          sx={{
-            fontSize: "1.5rem",
-            fontWeight: "bolder",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Regression
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "1rem",
-            fontWeight: "bold",
-            fontFamily: "Open Sans",
-          }}
-        >
-          Add the corresponding unit of the prediction column
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            margin: "1em 0",
-            gap: "5px",
-            alignItems: "center",
-          }}
-        >
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Unit for Prediction Column"
-            disabled={model && model.model_type === "CL"}
           />
           <InfoIcon sx={{ color: "grey" }} />
         </Box>
