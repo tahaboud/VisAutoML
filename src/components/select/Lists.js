@@ -74,7 +74,7 @@ const Lists = ({ columns, elements, setElements }) => {
               elements={elements["Prediction Column"]}
               key={"Prediction Column"}
               prefix={"Prediction Column*"}
-              tooltip="Compulsory"
+              tooltip="Column must be dependent value/ effect variable. For example: Test Score, Survival, Flight Price, etc."
               id={"Prediction Column"}
             />
             <DraggableElement
@@ -82,14 +82,14 @@ const Lists = ({ columns, elements, setElements }) => {
               key={"ID Column"}
               id={"ID Column"}
               prefix={"ID Column"}
-              tooltip="Must be unique (Optional)"
+              tooltip="Column must be unique. For example: Date, ID, Name, etc."
             />
             <DraggableElement
               elements={elements["Columns not to use"]}
               key={"Columns not to use"}
               id={"Columns not to use"}
-              prefix={"Columns not to use "}
-              tooltip="Optional"
+              prefix={"Column not to use"}
+              tooltip="Column to not include in the prediction"
             />
           </Box>
           <Box sx={{ width: "50%" }}>
@@ -98,7 +98,7 @@ const Lists = ({ columns, elements, setElements }) => {
               key={"Columns to use"}
               id={"Columns to use"}
               prefix={"Columns to use"}
-              tooltip=""
+              tooltip="Column to include in the prediction"
             />
           </Box>
         </Box>

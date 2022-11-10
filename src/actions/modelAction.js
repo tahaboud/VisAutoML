@@ -82,3 +82,49 @@ export const saveDescription = (description) => (dispatch, getState) => {
       console.log(err.response.data);
     });
 };
+
+export const submitModel =
+  ({ elements, auto, algo, unit, label0, label1 }) =>
+  (dispatch, getState) => {
+    const model = getState().model.model.id;
+    const id_column = elements["ID Column"][0]
+      ? elements["ID Column"][0].content
+      : "";
+    const prediction_column = elements["Prediction Column"][0]
+      ? elements["Prediction Column"][0].content
+      : "";
+    const not_to_use_columns = elements["Columns not to use"].map(
+      (e) => e.content
+    );
+    const projectTitle = getState().model.name;
+    const auto1 = auto ? 1 : 0;
+    const description = getState().model.description.id;
+    let data = "";
+    if (getState().model.type === "Regression") {
+      data = JSON.stringify({
+        model,
+        id_column,
+        prediction_column,
+        not_to_use_columns,
+        projectTitle,
+        algo,
+        auto: auto1,
+        unit,
+        description,
+      });
+    } else {
+      data = JSON.stringify({
+        model,
+        id_column,
+        prediction_column,
+        not_to_use_columns,
+        projectTitle,
+        algo,
+        auto,
+        label0,
+        label1,
+        description,
+      });
+    }
+    console.log(data);
+  };
